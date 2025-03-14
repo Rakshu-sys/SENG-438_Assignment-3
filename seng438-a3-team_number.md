@@ -50,4 +50,4 @@ The initial challenge was getting familiar with EclEmma because two of our team 
 
 # 10 Comments/feedback on the lab itself
 
-Text…
+The lab was a knowledgable experience with clearly set instructions that were easy to follow. By the end of it, we were very comfortable with unit testing. Even though we faced some challenges, they became learning experiences for us. The goal of the lab was also clearly mentioned and achievable for us. 
