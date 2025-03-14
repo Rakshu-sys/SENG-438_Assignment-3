@@ -14,7 +14,7 @@ for each group. Please see each lab document for details.)
 
 # 1 Introduction
 
-Text…
+This assignment focusses on exploring unit tests even more and increasing the coverage of the unit tests. It is an extension to Assignment 2. We woek with the same test suite using JFreeChart. We focus on testing the same test classes: Range and DataUtilities. We try to increase the coverage by increasing the developing more unit tests and making sure that the existing ones improve their coverage. We document our test strategy for the new unit tests. We use EclEmma as our coverage tool to observe the metrics. EclEmma is an additional software tool which is avialable via Eclipse. Just like the previous assignment, we use Eclipse for this assignment to perform testing and improve our testing skills. 
 
 # 2 Manual data-flow coverage calculations for X and Y methods
 
