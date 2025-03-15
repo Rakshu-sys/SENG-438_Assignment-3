@@ -18,15 +18,43 @@ This assignment focusses on exploring unit tests even more and increasing the co
 
 # 2 Manual data-flow coverage calculations for X and Y methods
 
-Text…
+For the calculateColumnTotal and calculateRowTotal methods, we manually traced the execution of each test case to determine the data flow coverage. We identified the def-use pairs (definition-use pairs) and calculated whether each pair was exercised by the test cases. For example, in calculateColumnTotal, we examined the flow from the parameter validRows through the loops and conditional statements. Each pair where a variable is defined and later used was assessed to determine if our tests triggered both the definition and the use of the variable. Similarly, in calculateRowTotal, we traced the data flow from the validCols parameter, checking if it was used correctly across the loops and ensuring that the correct values were summed.
+
+After analyzing the def-use pairs, we determined which conditions and branches were not covered in the initial tests. For instance, some tests failed to cover the case where validRows or validCols is empty. Based on this, we designed additional tests to ensure these critical paths were covered.
 
 # 3 A detailed description of the testing strategy for the new unit test
 
-Text…
+Our strategy was focused on improving code coverage by increasing statement, branch, and condition coverage. We began by analyzing the current tests to identify the areas where coverage was lacking. For instance, the tests did not cover certain edge cases, such as handling empty arrays or arrays with null values. We used EclEmma to track our progress and refine our tests based on the feedback provided by the coverage tool.
+
+Our test strategy included:
+
+Adding new unit tests to ensure that all paths, especially the conditional branches, were tested.
+Focusing on scenarios where edge cases might break the functionality, such as null inputs, boundary conditions (e.g., empty arrays), and mismatched array lengths.
+Regularly running tests and reviewing coverage metrics to identify any uncovered code.
+Using pair programming to analyze the code and discuss test strategies, ensuring we wrote tests that both fulfilled coverage criteria and validated correct behavior.
 
 # 4 A high level description of five selected test cases you have designed using coverage information, and how they have increased code coverage
 
-Text…
+Test for empty row/column handling:
+
+This test was created to handle edge cases where the row or column is empty. We added tests to verify that both the calculateColumnTotal and calculateRowTotal methods correctly return 0 when an empty row or column is provided.
+Impact: It covered scenarios where the code was not handling edge cases, thus improving both statement and branch coverage.
+Test for null values:
+
+We designed tests to ensure that the calculateColumnTotal method handles null values in the columns and calculateRowTotal handles null values in rows correctly. These tests checked if the total calculation ignored null values and didn't throw exceptions.
+Impact: It addressed uncovered code paths related to handling null data, improving condition and branch coverage.
+Test for different row/column lengths:
+
+We wrote a test that checks for rows with different lengths in calculateRowTotal, ensuring that the code correctly calculates the sum when there is a mismatch in the number of columns across rows.
+Impact: This test improved branch and condition coverage for scenarios where the row and column dimensions don't match.
+Test for large datasets:
+
+We created a test for large arrays to check how calculateColumnTotal handles larger data sets and ensures that the sum is correct. This is especially useful for verifying performance.
+Impact: This test improved statement coverage by covering more lines of the code, especially loops over large data sets.
+Test for invalid indices:
+
+This test checks the handling of invalid indices in calculateColumnTotal and calculateRowTotal, ensuring that the methods return the expected results or fail gracefully when given invalid row or column indices.
+Impact: It increased coverage by testing error handling and edge cases, improving both condition and branch coverage.
 
 # 5 A detailed report of the coverage achieved of each class and method (a screen shot from the code cover results in green and red color would suffice)
 
