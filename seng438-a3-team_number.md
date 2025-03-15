@@ -30,15 +30,55 @@ Text…
 
 # 5 A detailed report of the coverage achieved of each class and method (a screen shot from the code cover results in green and red color would suffice)
 
-Text…
+For the DataUtilities class, we achieved:
+
+Statement Coverage: 98.6%
+Branch Coverage: 95.7%
+Method Coverage: 93.1%
+
+We used EclEmma to track the coverage and identified areas where we needed to improve. We focused on improving coverage for edge cases, like handling null values and empty arrays. As a result, we were able to achieve the required coverage for the calculateColumnTotal and calculateRowTotal methods.
+
+For the RangeTest class, we achieved:
+
+Statement Coverage: 100%
+Branch Coverage: 100%
+Condition Coverage: 100%
+
+We applied a similar strategy to improve the coverage for RangeTest. We developed additional test cases to ensure edge cases like null values and varying lengths of ranges were covered. Our tests targeted all branches of the logic in the Range class, and we ensured that all conditions were evaluated to both true and false. Additionally, we verified that the proper exceptions were thrown in certain scenarios, which significantly improved coverage.
+
+Screenshots from EclEmma are included in the report, showing the areas marked in green (covered) and red (uncovered) for each method in DataUtilities and RangeTest. This allows us to demonstrate the areas where we improved coverage and where additional testing might be required in the future.
 
 # 6 Pros and Cons of coverage tools used and Metrics you report
 
-Text…
+
 
 # 7 A comparison on the advantages and disadvantages of requirements-based test generation and coverage-based test generation.
 
-Text…
+A comparison on the advantages and disadvantages of requirements-based test generation and coverage-based test generation
+
+Advantages of requirements-based test generation:
+
+- Focuses on testing the functionality according to the requirements, ensuring that the software behaves as expected in real-world scenarios.
+
+- Easier to correlate test cases with user stories or business needs.
+
+Disadvantages of requirements-based test generation:
+
+- May miss certain edge cases that are not explicitly mentioned in the requirements.
+
+- Can lead to incomplete test coverage, as only the specified requirements are covered.
+
+Advantages of coverage-based test generation:
+
+- Provides more comprehensive test coverage by focusing on ensuring that all parts of the code are tested.
+
+- Helps detect areas of the code that are not adequately tested, even if they are not part of the original requirements.
+
+Disadvantages of coverage-based test generation:
+
+- Focuses on code paths rather than user behavior, so it might test redundant scenarios that don’t contribute to the actual quality of the software.
+
+- It can be time-consuming to ensure 100% coverage, leading to diminishing returns for the effort spent on coverage.
 
 # 8 A discussion on how the team work/effort was divided and managed
 
