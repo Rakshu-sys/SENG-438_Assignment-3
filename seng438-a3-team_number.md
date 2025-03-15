@@ -98,10 +98,11 @@ Metrics reported:
 
 RangeTest.java Metrics : 
 
-
+![RangeTest.java](Rangecoverage.png)
 
 DataUtilitiesTest.java Metrics : 
 
+![DataUtilitiesTest.java](DataUtilitiescoverage.png)
 
 
 # 7 A comparison on the advantages and disadvantages of requirements-based test generation and coverage-based test generation.
