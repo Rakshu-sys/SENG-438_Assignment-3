@@ -78,6 +78,30 @@ Screenshots from EclEmma are included in the report, showing the areas marked in
 
 # 6 Pros and Cons of coverage tools used and Metrics you report
 
+Pros and Cons of coverage tools used and Metrics you report
+
+Pros of EclEmma:
+
+- EclEmma provides a quick and easy-to-understand visual representation of code coverage, directly integrated into Eclipse.
+
+- It helps identify untested code paths, enabling us to focus on improving areas of the code with low coverage.
+
+- The tool is lightweight and integrates seamlessly with JUnit tests.
+
+Cons of EclEmma:
+
+- While EclEmma is good for basic coverage, it does not always provide deep insights into more complex coverage types (e.g., path coverage) and might need additional tools.
+
+- It can sometimes give misleading results when dealing with mocked or dynamically generated code.
+
+Metrics reported:
+
+RangeTest.java Metrics : 
+
+
+
+DataUtilitiesTest.java Metrics : 
+
 
 
 # 7 A comparison on the advantages and disadvantages of requirements-based test generation and coverage-based test generation.
