@@ -226,7 +226,13 @@ public class RangeTest {
         assertEquals("Upper bound of negative range should be correct", -5, negativeRange.getUpperBound(), 0.00001);
     }
     
-  
+    @Test
+    public void testShiftRangeWithCrossingZero() {
+        Range shifted = Range.shift(range, -20, true);
+        assertEquals("Shifted lower bound should handle crossing zero", -15, shifted.getLowerBound(), 0.00001);
+        assertEquals("Shifted upper bound should handle crossing zero", -5, shifted.getUpperBound(), 0.00001);
+    }
+
     @Test
     public void testCombineWithMultipleRanges() {
         Range range1 = new Range(2, 8);
@@ -244,14 +250,6 @@ public class RangeTest {
     }
 
     
-
-    @Test
-    public void testShiftRangeWithCrossingZero() {
-        Range shifted = Range.shift(range, -20, true);
-        assertEquals("Shifted lower bound should handle crossing zero", -15, shifted.getLowerBound(), 0.00001);
-        assertEquals("Shifted upper bound should handle crossing zero", -5, shifted.getUpperBound(), 0.00001);
-    }
-
     @Test
     public void testExpandWithExtremeValues() {
         Range expanded = Range.expand(range, Double.MAX_VALUE, Double.MAX_VALUE);
