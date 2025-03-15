@@ -5,9 +5,9 @@
 | Group \#:      |     |
 | -------------- | --- |
 | Student Names: | Rakshita Suri    |
-|                |     |
-|                |     |
-|                |     |
+|                | Mohit Kaila |
+|                | Shalin Wickremeratna  |
+|                | Okibe Abang    |
 
 (Note that some labs require individual reports while others require one report
 for each group. Please see each lab document for details.)
