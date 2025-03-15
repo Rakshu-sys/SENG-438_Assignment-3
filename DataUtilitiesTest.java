@@ -1,4 +1,4 @@
-package org.jfree.data.test;
+package org.jfree.data;
 
 import static org.junit.Assert.*;
 
@@ -197,4 +197,98 @@ public class DataUtilitiesTest {
         KeyedValues result = DataUtilities.getCumulativePercentages(mockKeyedValues);
         assertNotNull("Cumulative percentages should not be null", result);
     }
+    
+    @Test
+    public void testEqualBothArraysNull() {
+        double[][] array1 = null;
+        double[][] array2 = null;
+        assertTrue(DataUtilities.equal(array1, array2));  // Both arrays null, should return true
+    }
+    
+    @Test
+    public void testEqualFirstArrayNull() {
+        double[][] array1 = null;
+        double[][] array2 = {{1.0, 2.0}};
+        assertFalse(DataUtilities.equal(array1, array2));  // First array null, should return false
+    }
+
+    @Test
+    public void testEqualSecondArrayNull() {
+        double[][] array1 = {{1.0, 2.0}};
+        double[][] array2 = null;
+        assertFalse(DataUtilities.equal(array1, array2));  // Second array null, should return false
+    }
+
+    @Test
+    public void testEqualDifferentLengthArrays() {
+        double[][] array1 = {{1.0, 2.0}};
+        double[][] array2 = {{1.0}};
+        assertFalse(DataUtilities.equal(array1, array2));  // Arrays with different lengths, should return false
+    }
+
+    @Test
+    public void testEqualArraysWithDifferentValues() {
+        double[][] array1 = {{1.0, 2.0}};
+        double[][] array2 = {{1.0, 3.0}};
+        assertFalse(DataUtilities.equal(array1, array2));  // Same length, but different elements, should return false
+    }
+
+    @Test
+    public void testEqualArraysWithSameValues() {
+        double[][] array1 = {{1.0, 2.0}};
+        double[][] array2 = {{1.0, 2.0}};
+        assertTrue(DataUtilities.equal(array1, array2));  // Identical arrays, should return true
+    }
+    
+    @Test
+    public void testCloneValidArray() {
+        double[][] array = {{1.0, 2.0}, {3.0, 4.0}};
+        double[][] clonedArray = DataUtilities.clone(array);
+        
+        // Check that the arrays are equal
+        assertTrue(DataUtilities.equal(array, clonedArray));  // Arrays should be equal
+        
+        // Check that the cloned array is not the same reference as the original
+        assertNotSame(array, clonedArray);  // They should be different references
+        
+        // Check that individual elements are also correctly cloned
+        assertNotSame(array[0], clonedArray[0]);  // First row should not be the same reference
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCloneNullArray() {
+        double[][] array = null;
+        DataUtilities.clone(array);  // Should throw IllegalArgumentException
+    }
+
+    @Test
+    public void testCloneArrayWithNullRow() {
+        double[][] array = {{1.0, 2.0}, null, {3.0, 4.0}};
+        double[][] clonedArray = DataUtilities.clone(array);
+        
+        // Check if the cloned array is the same as the original
+        assertTrue(DataUtilities.equal(array, clonedArray));  // Arrays should be equal
+        
+        // Ensure the null row is correctly handled
+        assertNull(clonedArray[1]);  // The second row in the cloned array should be null
+    }
+
+    @Test
+    public void testCloneEmptyArray() {
+        double[][] array = {};
+        double[][] clonedArray = DataUtilities.clone(array);
+        
+        assertNotNull(clonedArray);  // The cloned array should not be null
+        assertEquals(0, clonedArray.length);  // The length should be 0
+    }
+
+    @Test
+    public void testCloneSingleRowArray() {
+        double[][] array = {{1.0, 2.0, 3.0}};
+        double[][] clonedArray = DataUtilities.clone(array);
+        
+        assertTrue(DataUtilities.equal(array, clonedArray));  // Arrays should be equal
+        assertNotSame(array, clonedArray);  // The arrays should be different references
+    }
+    
 }
